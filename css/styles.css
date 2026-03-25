@@ -99,43 +99,85 @@ h1,h2{
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,.6);
+    background:rgba(0,0,0,0.6);
     display:none;
     justify-content:center;
     align-items:center;
     z-index:1000;
 }
 
+/* Caja principal */
 .popup{
     background:white;
-    padding:25px;
+    width:90%;
+    max-width:600px;
+    padding:40px 30px;
     border-radius:15px;
     text-align:center;
-    width:300px;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
-    animation:fadeIn .5s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    position:relative;
+    animation:fadeIn .4s ease;
 }
 
+/* Botón cerrar */
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:20px;
+    cursor:pointer;
+    color:#555;
+}
+
+/* Título */
 .popup h2{
-    color:#27ae60;
+    font-size:22px;
+    margin-bottom:10px;
+    color:#2c3e50;
 }
 
+/* Texto */
+.popup p{
+    font-size:15px;
+    color:#555;
+    margin-bottom:25px;
+}
+
+/* Input */
+.popup input{
+    width:60%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+/* Botón */
 .popup button{
-    margin-top:15px;
-    padding:10px 15px;
+    padding:12px 18px;
+    margin-left:10px;
     border:none;
-    background:#27ae60;
+    background:black;
     color:white;
     border-radius:8px;
     cursor:pointer;
 }
 
+/* Animación */
 @keyframes fadeIn{
-    from{opacity:0; transform:scale(.8);}
-    to{opacity:1; transform:scale(1);}
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .card{ height:280px;}
+/* Responsive */
+@media(max-width:600px){
+    .popup input{
+        width:100%;
+        margin-bottom:10px;
+    }
+
+    .popup button{
+        width:100%;
+        margin-left:0;
+    }
 }
