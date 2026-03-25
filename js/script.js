@@ -60,11 +60,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const mensaje = document.getElementById("mensaje");
     const contadorTexto = document.getElementById("contador");
 
-    // ===== MOSTRAR POPUP SOLO UNA VEZ =====
-    if(!localStorage.getItem("popupMostrado")){
+    // ===== MOSTRAR POPUP SIEMPRE =====
+   
         popup.style.display = "flex";
-        localStorage.setItem("popupMostrado", "true");
-    }
+
 
     // ===== CONTADOR =====
     let contador = localStorage.getItem("contadorUsuarios") || 0;
