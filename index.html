@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nutrición - Platillos Saludables</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<!-- ===== POPUP ===== -->
+<div class="overlay" id="popup">
+    <div class="popup">
+        <h2>¡Bienvenido!</h2>
+        <p>
+            👋 Hola, bienvenido a nuestra página de alimentación saludable.<br><br>
+            El grupo <strong>NutriAmigos</strong> te da la bienvenida 💚
+        </p>
+        <button onclick="cerrarPopup()">Comenzar</button>
+    </div>
+</div>
+
+<h1>🍽️ Platillos Saludables</h1>
+
+<!-- ========= CARRUSEL ========= -->
+<div class="carousel">
+    <div class="slides" id="slides">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+            <div class="info">
+                <h2>Ensalada Balanceada</h2>
+                <p>Fibra, vitaminas y proteína magra.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+            <div class="info">
+                <h2>Pechuga a la Plancha</h2>
+                <p>Alta en proteínas, baja en grasa.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+            <div class="info">
+                <h2>Tacos de Pescado</h2>
+                <p>Omega 3 y grasas saludables.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777">
+            <div class="info">
+                <h2>Yogurt con Frutas</h2>
+                <p>Probióticos y energía natural.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="btn prev" onclick="move(-1)">❮</button>
+    <button class="btn next" onclick="move(1)">❯</button>
+</div>
+
+<!-- ========= SECCIÓN ========= -->
+<div class="section">
+    <div class="box">
+        <h2>🥗 ¿Qué es la comida saludable?</h2>
+        <p>
+        Es aquella que aporta los nutrimentos necesarios para el buen funcionamiento del cuerpo,
+        mantiene un peso adecuado y previene enfermedades.
+        </p>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
