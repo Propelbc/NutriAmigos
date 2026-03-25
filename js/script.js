@@ -17,10 +17,7 @@ setInterval(()=> move(1), 4000);
 
 // ===== POPUP =====
 window.onload = function(){
-    if(!localStorage.getItem("popupMostrado")){
-        document.getElementById("popup").style.display = "flex";
-        localStorage.setItem("popupMostrado", "true");
-    }
+    document.getElementById("popup").style.display = "flex";
 }
 
 function cerrarPopup(){
