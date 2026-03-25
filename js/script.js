@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         const data = new FormData(form);
 
-        fetch("https://formspree.io/f/TU_CODIGO_AQUI", {
+        fetch("https://formspree.io/f/maqlwlen", {
             method: "POST",
             body: data,
             headers: {
