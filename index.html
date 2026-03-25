@@ -13,12 +13,17 @@
 <!-- ===== POPUP ===== -->
 <div class="overlay" id="popup">
     <div class="popup">
-        <h2>¡Bienvenido!</h2>
+        <span class="close" onclick="cerrarPopup()">✖</span>
+
+        <h2>Únete a NutriAmigos</h2>
         <p>
-            👋 Hola, bienvenido a nuestra página de alimentación saludable.<br><br>
-            El grupo <strong>NutriAmigos</strong> te da la bienvenida 💚
+            Recibe consejos de alimentación saludable, recetas y tips para mejorar tu salud.
         </p>
-        <button onclick="cerrarPopup()">Comenzar</button>
+
+        <div>
+            <input type="email" placeholder="Ingresa tu correo">
+            <button>Unirme</button>
+        </div>
     </div>
 </div>
 
