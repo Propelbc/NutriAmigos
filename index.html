@@ -20,8 +20,25 @@
             Recibe consejos de alimentación saludable, recetas y tips para mejorar tu salud.
         </p>
 
-        <form action="https://formspree.io/f/maqlwlen" method="POST">
-            
+        <!-- FORMULARIO MODIFICADO -->
+        <form id="formNutri">
+
+            <input 
+                type="text" 
+                name="nombre" 
+                placeholder="Ingresa tu nombre" 
+                required
+            >
+
+            <input 
+                type="number" 
+                name="edad" 
+                placeholder="Edad" 
+                min="10" 
+                max="100"
+                required
+            >
+
             <input 
                 type="email" 
                 name="email" 
@@ -30,6 +47,12 @@
             >
 
             <button type="submit">Unirme</button>
+
+            <!-- MENSAJES -->
+            <p id="mensaje"></p>
+
+            <!-- CONTADOR -->
+            <p id="contador"></p>
 
         </form>
     </div>
