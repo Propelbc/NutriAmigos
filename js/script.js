@@ -202,3 +202,31 @@ function cerrarModal(){
         modal.style.display = "none";
     }
 }
+
+// ===== SWIPE PARA CELULAR =====
+let startX = 0;
+let endX = 0;
+
+const slides = document.getElementById("slides");
+
+if(slides){
+
+    slides.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    slides.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe(){
+        let diff = startX - endX;
+
+        if(diff > 50){
+            move(1); // izquierda
+        } else if(diff < -50){
+            move(-1); // derecha
+        }
+    }
+}
