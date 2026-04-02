@@ -3,9 +3,15 @@ let index = 0;
 let intervalo;
 
 // ===== CARRUSEL =====
+let index = 0;
+
 function move(step){
     const slides = document.getElementById("slides");
-    if(!slides) return;
+
+    if(!slides){
+        console.log("❌ No existe #slides");
+        return;
+    }
 
     const total = slides.children.length;
 
@@ -14,7 +20,7 @@ function move(step){
     if(index < 0) index = total - 1;
     if(index >= total) index = 0;
 
-    slides.style.transform = `translateX(-${index * 100}%)`;
+    slides.style.transform = "translateX(-" + (index * 100) + "%)";
 }
 
 // ===== CUANDO CARGA LA PÁGINA =====
