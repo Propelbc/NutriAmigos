@@ -5,13 +5,12 @@
 <meta charset="UTF-8">
 <title>Nutrición - Platillos Saludables</title>
 
-<!-- CSS -->
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-<!-- ===== POPUP ===== -->
+<!-- ===== POPUP PRINCIPAL ===== -->
 <div class="overlay" id="popup">
     <div class="popup">
         <span class="close" onclick="cerrarPopup()">✖️</span>
@@ -22,19 +21,23 @@
         </p>
 
         <form id="formNutri">
-
             <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
-
             <input type="number" name="edad" placeholder="Edad" min="10" max="100" required>
-
             <input type="email" name="email" placeholder="Ingresa tu correo" required>
 
             <button type="submit">Unirme</button>
 
             <p id="mensaje"></p>
             <p id="contador"></p>
-
         </form>
+    </div>
+</div>
+
+<!-- ===== MODAL DE PLATILLOS ===== -->
+<div class="overlay" id="modalInfo">
+    <div class="popup">
+        <span class="close" onclick="cerrarModal()">✖️</span>
+        <div id="contenidoModal"></div>
     </div>
 </div>
 
@@ -48,35 +51,43 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
 <div class="carousel">
     <div class="slides" id="slides">
 
-        <div class="card">
+        <div class="card" onclick="abrirModal('avena')">
             <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93">
             <div class="info">
                 <h2>Hot Cake de Avena</h2>
-                <p>Consumir con moderación si se busca controlar el peso o los niveles de glucosa.</p>
+                <p>Rico en fibra y energía natural.</p>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="abrirModal('arroz')">
             <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
             <div class="info">
-                <h2>Pechuga a la Plancha</h2>
-                <p>Alta en proteínas, baja en grasa.</p>
+                <h2>Galletas de Arroz</h2>
+                <p>Snack energético con grasas saludables.</p>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="abrirModal('agua')">
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
             <div class="info">
-                <h2>Tacos de Pescado</h2>
-                <p>Omega 3 y grasas saludables.</p>
+                <h2>Agua de Avena</h2>
+                <p>Mejora digestión y aporta energía.</p>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="abrirModal('yogurt')">
             <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777">
             <div class="info">
-                <h2>Yogurt con Frutas</h2>
-                <p>Probióticos y energía natural.</p>
+                <h2>Yogurt con Frutos Secos</h2>
+                <p>Proteínas, fibra y grasas saludables.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="abrirModal('palomitas')">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+            <div class="info">
+                <h2>Palomitas Saludables</h2>
+                <p>Snack rico en fibra y antioxidantes.</p>
             </div>
         </div>
 
@@ -99,8 +110,8 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
         <ul>
             <li>✔️ Incluye frutas y verduras diariamente</li>
             <li>✔️ Prefiere cereales integrales</li>
-            <li>✔️ Consume proteínas magras (pollo, pescado, leguminosas)</li>
-            <li>✔️ Reduce azúcares, sal y grasas saturadas</li>
+            <li>✔️ Consume proteínas magras</li>
+            <li>✔️ Reduce azúcares y grasas</li>
             <li>✔️ Mantente hidratado</li>
         </ul>
 
@@ -108,50 +119,23 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
 
         <h2>⚙️ Cálculo del gasto energético</h2>
 
-        <p>
-        Para mantener una alimentación adecuada, es importante conocer cuánta energía necesita el cuerpo.
-        Esto se calcula mediante el Gasto Energético Total (GET).
-        </p>
+        <h3>🔹 Harris-Benedict</h3>
+        <p>Hombres: 66 + (13.7 × peso) + (5 × altura) − (6.8 × edad)</p>
+        <p>Mujeres: 655 + (9.6 × peso) + (1.8 × altura) − (4.7 × edad)</p>
 
-        <h3>🔹 1. Fórmula de Harris-Benedict</h3>
-        <p>Permite calcular el metabolismo basal.</p>
-
-        <p><strong>Hombres:</strong><br>
-        GET = 66 + (13.7 × peso kg) + (5 × altura cm) − (6.8 × edad)</p>
-
-        <p><strong>Mujeres:</strong><br>
-        GET = 655 + (9.6 × peso kg) + (1.8 × altura cm) − (4.7 × edad)</p>
-
-        <h3>🔹 2. Actividad Física (A.F)</h3>
+        <h3>🔹 Actividad Física</h3>
         <ul>
-            <li>🪑 Sedentario: +10%</li>
-            <li>🚶 Moderado: +30%</li>
-            <li>🏃 Activo: +50%</li>
+            <li>🪑 Sedentario</li>
+            <li>🚶 Moderado</li>
+            <li>🏃 Activo</li>
         </ul>
 
-        <h3>🔹 3. Efecto Térmico de los Alimentos (ETA)</h3>
-        <p>
-        Es la energía que el cuerpo utiliza para digerir los alimentos (≈10%).
-        </p>
-
-        <h3>🔹 4. Gasto Energético Total (GET)</h3>
-        <p><strong>
-        GET = Metabolismo Basal + Actividad Física + ETA
-        </strong></p>
-
-        <hr>
-
-        <h3>📊 Importancia</h3>
-        <ul>
-            <li>✔️ Permite planificar una dieta adecuada</li>
-            <li>✔️ Ayuda a mantener o bajar de peso</li>
-            <li>✔️ Previene enfermedades</li>
-        </ul>
+        <h3>🔹 GET</h3>
+        <p><strong>GET = MB + AF + ETA</strong></p>
 
     </div>
 </div>
 
-<!-- JS -->
 <script src="js/script.js"></script>
 
 </body>
