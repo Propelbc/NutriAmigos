@@ -30,9 +30,18 @@ document.addEventListener("DOMContentLoaded", function(){
     const mensaje = document.getElementById("mensaje");
     const contadorTexto = document.getElementById("contador");
 
-    // ===== INICIAR CARRUSEL (AQUÍ SÍ FUNCIONA) =====
-    intervalo = setInterval(() => move(1), 4000);
+    // ===== INICIAR CARRUSEL  =====
+    const carousel = document.querySelector(".carousel");
 
+if(carousel){
+    carousel.addEventListener("mouseenter", () => {
+        clearInterval(intervalo);
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+        intervalo = setInterval(() => move(1), 4000);
+    });
+}
     // ===== MOSTRAR POPUP =====
     if(popup){
         popup.style.display = "flex";
