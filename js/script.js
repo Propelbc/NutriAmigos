@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const mensaje = document.getElementById("mensaje");
     const contadorTexto = document.getElementById("contador");
 
-    // MOSTRAR POPUP SIEMPRE
+    // MOSTRAR POPUP
     if(popup){
         popup.style.display = "flex";
     }
@@ -99,15 +99,108 @@ document.addEventListener("DOMContentLoaded", function(){
             .catch(() => {
                 mensaje.innerHTML = "⚠️ Error de conexión";
             });
-        });
     }
 
 });
 
-// ===== CERRAR POPUP =====
+// ===== CERRAR POPUP PRINCIPAL =====
 function cerrarPopup(){
     const popup = document.getElementById("popup");
     if(popup){
         popup.style.display = "none";
+    }
+}
+
+
+// ===== MODAL DE PLATILLOS 🔥 =====
+function abrirModal(tipo){
+
+    const modal = document.getElementById("modalInfo");
+    const contenido = document.getElementById("contenidoModal");
+
+    if(!modal || !contenido) return;
+
+    let info = "";
+
+    if(tipo === "avena"){
+        info = `
+        <h2>Hot Cake de Avena</h2>
+        <p>Consumir con moderación si se busca controlar peso o glucosa.</p>
+
+        <h3>Beneficios</h3>
+        <ul>
+            <li>✔ Mejora la digestión</li>
+            <li>✔ Aporta energía natural</li>
+            <li>✔ Ayuda a controlar el colesterol</li>
+            <li>✔ Genera saciedad</li>
+        </ul>
+
+        <h3>Valor nutricional</h3>
+        <p>250-300 kcal | 45-50g carbohidratos | 7-9g proteínas</p>
+        `;
+    }
+
+    if(tipo === "arroz"){
+        info = `
+        <h2>Galletas de Arroz con Crema de Cacahuate</h2>
+        <p>Snack energético ideal antes de entrenar.</p>
+
+        <ul>
+            <li>✔ 150-190 kcal</li>
+            <li>✔ Grasas saludables</li>
+            <li>✔ Proteínas</li>
+        </ul>
+        `;
+    }
+
+    if(tipo === "agua"){
+        info = `
+        <h2>Agua de Avena</h2>
+        <p>Mejora la digestión y controla el azúcar.</p>
+
+        <ul>
+            <li>✔ Reduce colesterol</li>
+            <li>✔ Aporta vitaminas B</li>
+            <li>✔ Energía natural</li>
+        </ul>
+        `;
+    }
+
+    if(tipo === "yogurt"){
+        info = `
+        <h2>Yogurt con Frutos Secos</h2>
+        <p>Combinación nutritiva y saciante.</p>
+
+        <ul>
+            <li>✔ Probióticos</li>
+            <li>✔ Omega 3</li>
+            <li>✔ Salud digestiva</li>
+        </ul>
+        `;
+    }
+
+    if(tipo === "palomitas"){
+        info = `
+        <h2>Palomitas Saludables</h2>
+        <p>Snack rico en fibra y antioxidantes.</p>
+
+        <ul>
+            <li>✔ Mejora la digestión</li>
+            <li>✔ Ayuda a controlar el peso</li>
+            <li>✔ Beneficio cardiovascular</li>
+        </ul>
+        `;
+    }
+
+    contenido.innerHTML = info;
+    modal.style.display = "flex";
+}
+
+
+// ===== CERRAR MODAL =====
+function cerrarModal(){
+    const modal = document.getElementById("modalInfo");
+    if(modal){
+        modal.style.display = "none";
     }
 }
