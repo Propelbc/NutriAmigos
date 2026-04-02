@@ -134,43 +134,71 @@ function abrirModal(tipo){
     const modal = document.getElementById("modalInfo");
     const contenido = document.getElementById("contenidoModal");
 
-    if(!modal || !contenido) return;
-
     let info = "";
 
     if(tipo === "avena"){
         info = `
         <h2>Hot Cake de Avena</h2>
         <p>Consumir con moderación si se busca controlar peso o glucosa.</p>
+
+        <h3>Beneficios</h3>
         <ul>
-            <li>✔ Mejora digestión</li>
-            <li>✔ Aporta energía</li>
-            <li>✔ Controla colesterol</li>
+            <li>✔ Mejora la digestión</li>
+            <li>✔ Aporta energía natural</li>
+            <li>✔ Ayuda a controlar el colesterol</li>
             <li>✔ Genera saciedad</li>
+        </ul>
+
+        <h3>Valor Nutricional</h3>
+        <ul>
+            <li>Calorías: 250-300 kcal</li>
+            <li>Carbohidratos: 45-50 g</li>
+            <li>Proteínas: 7-9 g</li>
+            <li>Grasas: 4-6 g</li>
+            <li>Fibra: 6-8 g</li>
+            <li>Potasio: Alto</li>
+            <li>Vitaminas: Complejo B y B6</li>
         </ul>
         `;
     }
 
     if(tipo === "arroz"){
         info = `
-        <h2>Galletas de Arroz</h2>
+        <h2>Galletas de Arroz con Crema de Cacahuate</h2>
+
         <p>Snack energético ideal antes de entrenar.</p>
+
+        <h3>Información Nutricional</h3>
         <ul>
-            <li>✔ 150-190 kcal</li>
-            <li>✔ Grasas saludables</li>
-            <li>✔ Proteínas</li>
+            <li>Calorías: 150-190 kcal</li>
+            <li>Grasas: 6-9 g</li>
+            <li>Carbohidratos: 16-31 g</li>
+            <li>Proteínas: 4-6 g</li>
         </ul>
+
+        <p>⚠️ Consumir con moderación por su alto contenido calórico.</p>
         `;
     }
 
     if(tipo === "agua"){
         info = `
         <h2>Agua de Avena</h2>
-        <p>Mejora digestión y controla azúcar.</p>
+
+        <h3>Beneficios</h3>
         <ul>
+            <li>✔ Mejora la digestión</li>
             <li>✔ Reduce colesterol</li>
-            <li>✔ Aporta vitaminas</li>
-            <li>✔ Energía natural</li>
+            <li>✔ Controla azúcar en sangre</li>
+            <li>✔ Aporta vitaminas B y E</li>
+        </ul>
+
+        <h3>Valor Nutricional (250ml)</h3>
+        <ul>
+            <li>Calorías: 130-140 kcal</li>
+            <li>Carbohidratos: 21-22 g</li>
+            <li>Proteínas: 4-5.8 g</li>
+            <li>Grasas: 3-3.4 g</li>
+            <li>Fibra: 2 g</li>
         </ul>
         `;
     }
@@ -178,31 +206,39 @@ function abrirModal(tipo){
     if(tipo === "yogurt"){
         info = `
         <h2>Yogurt con Frutos Secos</h2>
-        <p>Combinación nutritiva y saciante.</p>
+
+        <h3>Beneficios</h3>
         <ul>
-            <li>✔ Probióticos</li>
-            <li>✔ Omega 3</li>
-            <li>✔ Salud digestiva</li>
+            <li>✔ Rico en probióticos</li>
+            <li>✔ Favorece la microbiota</li>
+            <li>✔ Aporta omega 3</li>
+            <li>✔ Alta saciedad</li>
         </ul>
+
+        <h3>Porción Recomendada</h3>
+        <p>200-250 kcal aproximadamente</p>
         `;
     }
 
     if(tipo === "palomitas"){
         info = `
         <h2>Palomitas Saludables</h2>
-        <p>Snack rico en fibra y antioxidantes.</p>
+
+        <h3>Beneficios</h3>
         <ul>
-            <li>✔ Mejora digestión</li>
-            <li>✔ Controla peso</li>
-            <li>✔ Beneficio cardiovascular</li>
+            <li>✔ Fuente de fibra</li>
+            <li>✔ Control de peso</li>
+            <li>✔ Antioxidantes</li>
+            <li>✔ Salud cardiovascular</li>
         </ul>
+
+        <p>⚠️ Evitar mantequilla y exceso de aceite.</p>
         `;
     }
 
     contenido.innerHTML = info;
     modal.style.display = "flex";
 }
-
 
 // ===== CERRAR MODAL =====
 function cerrarModal(){
