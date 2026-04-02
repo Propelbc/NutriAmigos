@@ -21,6 +21,11 @@ h1,h2{
     box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
+#modalInfo .popup{
+    max-height:80vh;
+    overflow-y:auto;
+}
+
 .slides{
     display:flex;
     transition:transform .5s ease;
