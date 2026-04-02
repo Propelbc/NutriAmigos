@@ -1,4 +1,3 @@
-alert("JS funcionando");
 // ===== VARIABLES GLOBALES =====
 let index = 0;
 let intervalo;
