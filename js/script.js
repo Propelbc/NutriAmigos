@@ -1,6 +1,8 @@
-// ===== CARRUSEL =====
+// ===== VARIABLES GLOBALES =====
 let index = 0;
+let intervalo;
 
+// ===== CARRUSEL =====
 function move(step){
     const slides = document.getElementById("slides");
     if(!slides) return;
@@ -15,10 +17,6 @@ function move(step){
     slides.style.transform = `translateX(-${index * 100}%)`;
 }
 
-// Movimiento automático
-setInterval(() => move(1), 4000);
-
-
 // ===== CUANDO CARGA LA PÁGINA =====
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -27,18 +25,21 @@ document.addEventListener("DOMContentLoaded", function(){
     const mensaje = document.getElementById("mensaje");
     const contadorTexto = document.getElementById("contador");
 
-    // MOSTRAR POPUP
+    // ===== INICIAR CARRUSEL (AQUÍ SÍ FUNCIONA) =====
+    intervalo = setInterval(() => move(1), 4000);
+
+    // ===== MOSTRAR POPUP =====
     if(popup){
         popup.style.display = "flex";
     }
 
-    // CONTADOR
+    // ===== CONTADOR =====
     let contador = localStorage.getItem("contadorUsuarios") || 0;
     if(contadorTexto){
         contadorTexto.innerHTML = `👥 Participantes: ${contador}`;
     }
 
-    // FORMULARIO
+    // ===== FORMULARIO =====
     if(form){
         form.addEventListener("submit", function(e){
             e.preventDefault();
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
             const edad = parseInt(form.edad.value);
             const email = form.email.value.trim();
 
+            // VALIDACIONES
             if(nombre.length < 3){
                 mensaje.innerHTML = "⚠️ Nombre muy corto";
                 return;
@@ -72,9 +74,7 @@ document.addEventListener("DOMContentLoaded", function(){
             fetch("https://formspree.io/f/maqlwlen", {
                 method: "POST",
                 body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if(response.ok){
@@ -99,11 +99,13 @@ document.addEventListener("DOMContentLoaded", function(){
             .catch(() => {
                 mensaje.innerHTML = "⚠️ Error de conexión";
             });
+        });
     }
 
 });
 
-// ===== CERRAR POPUP PRINCIPAL =====
+
+// ===== CERRAR POPUP =====
 function cerrarPopup(){
     const popup = document.getElementById("popup");
     if(popup){
@@ -112,7 +114,7 @@ function cerrarPopup(){
 }
 
 
-// ===== MODAL DE PLATILLOS 🔥 =====
+// ===== MODAL DE PLATILLOS =====
 function abrirModal(tipo){
 
     const modal = document.getElementById("modalInfo");
@@ -126,25 +128,19 @@ function abrirModal(tipo){
         info = `
         <h2>Hot Cake de Avena</h2>
         <p>Consumir con moderación si se busca controlar peso o glucosa.</p>
-
-        <h3>Beneficios</h3>
         <ul>
-            <li>✔ Mejora la digestión</li>
-            <li>✔ Aporta energía natural</li>
-            <li>✔ Ayuda a controlar el colesterol</li>
+            <li>✔ Mejora digestión</li>
+            <li>✔ Aporta energía</li>
+            <li>✔ Controla colesterol</li>
             <li>✔ Genera saciedad</li>
         </ul>
-
-        <h3>Valor nutricional</h3>
-        <p>250-300 kcal | 45-50g carbohidratos | 7-9g proteínas</p>
         `;
     }
 
     if(tipo === "arroz"){
         info = `
-        <h2>Galletas de Arroz con Crema de Cacahuate</h2>
+        <h2>Galletas de Arroz</h2>
         <p>Snack energético ideal antes de entrenar.</p>
-
         <ul>
             <li>✔ 150-190 kcal</li>
             <li>✔ Grasas saludables</li>
@@ -156,11 +152,10 @@ function abrirModal(tipo){
     if(tipo === "agua"){
         info = `
         <h2>Agua de Avena</h2>
-        <p>Mejora la digestión y controla el azúcar.</p>
-
+        <p>Mejora digestión y controla azúcar.</p>
         <ul>
             <li>✔ Reduce colesterol</li>
-            <li>✔ Aporta vitaminas B</li>
+            <li>✔ Aporta vitaminas</li>
             <li>✔ Energía natural</li>
         </ul>
         `;
@@ -170,7 +165,6 @@ function abrirModal(tipo){
         info = `
         <h2>Yogurt con Frutos Secos</h2>
         <p>Combinación nutritiva y saciante.</p>
-
         <ul>
             <li>✔ Probióticos</li>
             <li>✔ Omega 3</li>
@@ -183,10 +177,9 @@ function abrirModal(tipo){
         info = `
         <h2>Palomitas Saludables</h2>
         <p>Snack rico en fibra y antioxidantes.</p>
-
         <ul>
-            <li>✔ Mejora la digestión</li>
-            <li>✔ Ayuda a controlar el peso</li>
+            <li>✔ Mejora digestión</li>
+            <li>✔ Controla peso</li>
             <li>✔ Beneficio cardiovascular</li>
         </ul>
         `;
