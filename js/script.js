@@ -4,7 +4,6 @@ let index = 0;
 let intervalo;
 
 // ===== CARRUSEL =====
-let index = 0;
 
 function move(step){
     const slides = document.getElementById("slides");
