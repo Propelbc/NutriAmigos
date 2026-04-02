@@ -1,7 +1,7 @@
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
-    background:#eef3f4;
+    background:#fff3c4; /* amarillo suave */
 }
 
 /* TITULOS */
@@ -14,10 +14,11 @@ h1,h2{
 .carousel{
     position:relative;
     width:90%;
-    max-width:1000px;
+    max-width:900px;
     margin:20px auto;
     overflow:hidden;
-    border-radius:10px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 .slides{
@@ -28,9 +29,9 @@ h1,h2{
 .card{
     position:relative;
     min-width:100%;
-    height:180px;
+    height:200px;
     cursor:pointer;
-    transition:.4s;
+    transition:.3s;
 }
 
 .card img{
@@ -44,16 +45,16 @@ h1,h2{
     position:absolute;
     bottom:0;
     width:100%;
-    background:rgba(0,0,0,.5);
+    background:rgba(0,0,0,.6);
     color:white;
     padding:10px;
     transform:translateY(100%);
-    transition:.4s;
+    transition:.3s;
     font-size:14px;
 }
 
 .card:hover{
-    transform:scale(1.03);
+    transform:scale(1.02);
 }
 
 .card:hover .info{
@@ -66,11 +67,11 @@ h1,h2{
     transform:translateY(-50%);
     background:#27ae60;
     border:none;
-    padding:6px 10px;
+    padding:8px 12px;
     color:white;
-    font-size:14px;
+    font-size:16px;
     cursor:pointer;
-    border-radius:5px;
+    border-radius:50%;
 }
 
 .prev{ left:10px;}
@@ -79,7 +80,7 @@ h1,h2{
 /* ===== SECCIONES ===== */
 .section{
     width:90%;
-    max-width:1000px;
+    max-width:900px;
     margin:40px auto;
 }
 
@@ -88,7 +89,7 @@ h1,h2{
     padding:30px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,.1);
-    line-height:1.6;
+    line-height:1.7;
     margin-bottom:30px;
 }
 
@@ -106,87 +107,83 @@ h1,h2{
     z-index:1000;
 }
 
-/* Caja principal */
 .popup{
     background:white;
     width:90%;
-    max-width:400px;
-    padding:40px 30px;
-    border-radius:15px;
+    max-width:350px;
+    padding:30px 25px;
+    border-radius:20px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
     position:relative;
     animation:fadeIn .4s ease;
-    transition: all 0.3s ease;
-}
-
-/* Efecto hover pro */
-.popup:hover{
-    transform: scale(1.02);
 }
 
 /* Botón cerrar */
 .close{
     position:absolute;
-    top:15px;
-    right:20px;
-    font-size:20px;
+    top:12px;
+    right:15px;
+    font-size:18px;
     cursor:pointer;
-    color:#555;
-}
-
-/* Título */
-.popup h2{
-    font-size:22px;
-    margin-bottom:10px;
-    color:#2c3e50;
+    color:#888;
 }
 
 /* Texto */
 .popup p{
-    font-size:15px;
+    font-size:14px;
     color:#555;
-    margin-bottom:25px;
 }
 
 /* FORM */
 .popup form{
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
+    margin-top:15px;
 }
 
-/* Input */
+/* INPUTS PRO */
 .popup input{
-    width:60%;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
     outline:none;
+    font-size:14px;
+    transition:0.2s;
 }
 
-/* Botón */
+.popup input:focus{
+    border-color:#27ae60;
+    box-shadow:0 0 5px rgba(39,174,96,0.3);
+}
+
+/* BOTÓN PRO */
 .popup button{
-    padding:12px 18px;
-    margin-left:10px;
+    padding:12px;
     border:none;
-    background:black;
+    background:#27ae60;
     color:white;
-    border-radius:8px;
+    border-radius:10px;
+    font-size:15px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.popup button:hover{
+    background:#219150;
 }
 
 /* MENSAJE */
 #mensaje{
-    font-size:14px;
-    text-align:center;
+    font-size:13px;
 }
 
-/* CONTADOR (CORREGIDO) */
+/* CONTADOR */
 #contador{
-    font-size:13px;
+    font-size:12px;
     color:#27ae60;
-    text-align:center;
 }
 
 /* Animación */
@@ -198,53 +195,20 @@ h1,h2{
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
 
+    .card{
+        height:160px;
+    }
+
     .popup{
-        width:90%;
-        max-width:350px;
         padding:20px;
-        border-radius:12px;
     }
 
     .popup h2{
         font-size:18px;
     }
 
-    .popup p{
-        font-size:14px;
-        margin-bottom:15px;
-    }
-
-    .popup form{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .popup input{
-        width:100%;
-        padding:12px;
-        font-size:14px;
-    }
-
+    .popup input,
     .popup button{
-        width:100%;
-        padding:12px;
-        font-size:15px;
-        margin-left:0;
-    }
-
-    .close{
-        font-size:18px;
-        top:10px;
-        right:15px;
-    }
-
-    #mensaje{
-        text-align:center;
-    }
-
-    #contador{
-        text-align:center;
-        font-size:12px;
+        font-size:14px;
     }
 }
