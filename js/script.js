@@ -33,15 +33,16 @@ document.addEventListener("DOMContentLoaded", function(){
     // ===== INICIAR CARRUSEL  =====
     const carousel = document.querySelector(".carousel");
 
-if(carousel){
-    carousel.addEventListener("mouseenter", () => {
-        clearInterval(intervalo);
-    });
+    if(carousel){
+        carousel.addEventListener("mouseenter", () => {
+            clearInterval(intervalo);
+        });
 
-    carousel.addEventListener("mouseleave", () => {
-        intervalo = setInterval(() => move(1), 4000);
-    });
-}
+        carousel.addEventListener("mouseleave", () => {
+            intervalo = setInterval(() => move(1), 4000);
+        });
+    }
+
     // ===== MOSTRAR POPUP =====
     if(popup){
         popup.style.display = "flex";
@@ -62,7 +63,6 @@ if(carousel){
             const edad = parseInt(form.edad.value);
             const email = form.email.value.trim();
 
-            // VALIDACIONES
             if(nombre.length < 3){
                 mensaje.innerHTML = "⚠️ Nombre muy corto";
                 return;
@@ -116,8 +116,93 @@ if(carousel){
         });
     }
 
+    // ===== CALCULADORA GET =====
+    const getForm = document.getElementById("getForm");
+    const resultadoBox = document.getElementById("resultadoGET");
+
+    if(getForm){
+
+        getForm.addEventListener("submit", function(e){
+            e.preventDefault();
+
+            const sexo = document.getElementById("sexo").value;
+            const edad = parseInt(document.getElementById("edad").value);
+            const peso = parseFloat(document.getElementById("peso").value);
+            const estatura = parseFloat(document.getElementById("estatura").value);
+            const actividad = parseFloat(document.getElementById("actividad").value);
+
+            if(!sexo || isNaN(edad) || isNaN(peso) || isNaN(estatura) || isNaN(actividad)){
+                resultadoBox.innerHTML = "<p style='color:red;'>⚠️ Completa todos los campos correctamente.</p>";
+                return;
+            }
+
+            let tmb;
+
+            if(sexo === "hombre"){
+                tmb = 88.36 + (13.4 * peso) + (4.8 * estatura) - (5.7 * edad);
+            } else {
+                tmb = 447.6 + (9.2 * peso) + (3.1 * estatura) - (4.3 * edad);
+            }
+
+            let get = tmb * actividad;
+            get = get * 1.10;
+
+            tmb = Math.round(tmb);
+            get = Math.round(get);
+
+            let mensajeGET = `Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.`;
+
+            resultadoBox.innerHTML = `
+                <h3>📊 Resultados</h3>
+                <p><strong>TMB:</strong> ${tmb} kcal/día</p>
+                <p><strong>GET:</strong> ${get} kcal/día</p>
+                <p>${mensajeGET}</p>
+            `;
+
+            // ===== EXTRA PRO =====
+            const extra = document.getElementById("extraGET");
+
+            if(extra){
+
+                let porcentaje = Math.min((get / 3500) * 100, 100);
+
+                extra.innerHTML = `
+                    <h3>⚡ Nivel de Energía</h3>
+                    <div class="barra-energia">
+                        <div class="nivel-energia" id="barraNivel"></div>
+                    </div>
+
+                    <h3>🎯 Objetivo</h3>
+                    <button onclick="ajustarCalorias(${get}, 'bajar')">Bajar peso</button>
+                    <button onclick="ajustarCalorias(${get}, 'subir')">Subir masa</button>
+
+                    <div id="recomendacion"></div>
+                `;
+
+                setTimeout(() => {
+                    document.getElementById("barraNivel").style.width = porcentaje + "%";
+                }, 100);
+            }
+        });
+    }
+
 });
 
+// ===== AJUSTE DE CALORÍAS =====
+function ajustarCalorias(get, objetivo){
+
+    const recomendacion = document.getElementById("recomendacion");
+
+    let calorias;
+
+    if(objetivo === "bajar"){
+        calorias = get - 500;
+        recomendacion.innerHTML = `🔻 Consumir aprox <strong>${calorias} kcal/día</strong>`;
+    } else {
+        calorias = get + 500;
+        recomendacion.innerHTML = `🔺 Consumir aprox <strong>${calorias} kcal/día</strong>`;
+    }
+}
 
 // ===== CERRAR POPUP =====
 function cerrarPopup(){
@@ -126,7 +211,6 @@ function cerrarPopup(){
         popup.style.display = "none";
     }
 }
-
 
 // ===== MODAL DE PLATILLOS =====
 function abrirModal(tipo){
@@ -137,103 +221,7 @@ function abrirModal(tipo){
     let info = "";
 
     if(tipo === "avena"){
-        info = `
-        <h2>Hot Cake de Avena</h2>
-        <p>Consumir con moderación si se busca controlar peso o glucosa.</p>
-
-        <h3>Beneficios</h3>
-        <ul>
-            <li>✔ Mejora la digestión</li>
-            <li>✔ Aporta energía natural</li>
-            <li>✔ Ayuda a controlar el colesterol</li>
-            <li>✔ Genera saciedad</li>
-        </ul>
-
-        <h3>Valor Nutricional</h3>
-        <ul>
-            <li>Calorías: 250-300 kcal</li>
-            <li>Carbohidratos: 45-50 g</li>
-            <li>Proteínas: 7-9 g</li>
-            <li>Grasas: 4-6 g</li>
-            <li>Fibra: 6-8 g</li>
-            <li>Potasio: Alto</li>
-            <li>Vitaminas: Complejo B y B6</li>
-        </ul>
-        `;
-    }
-
-    if(tipo === "arroz"){
-        info = `
-        <h2>Galletas de Arroz con Crema de Cacahuate</h2>
-
-        <p>Snack energético ideal antes de entrenar.</p>
-
-        <h3>Información Nutricional</h3>
-        <ul>
-            <li>Calorías: 150-190 kcal</li>
-            <li>Grasas: 6-9 g</li>
-            <li>Carbohidratos: 16-31 g</li>
-            <li>Proteínas: 4-6 g</li>
-        </ul>
-
-        <p>⚠️ Consumir con moderación por su alto contenido calórico.</p>
-        `;
-    }
-
-    if(tipo === "agua"){
-        info = `
-        <h2>Agua de Avena</h2>
-
-        <h3>Beneficios</h3>
-        <ul>
-            <li>✔ Mejora la digestión</li>
-            <li>✔ Reduce colesterol</li>
-            <li>✔ Controla azúcar en sangre</li>
-            <li>✔ Aporta vitaminas B y E</li>
-        </ul>
-
-        <h3>Valor Nutricional (250ml)</h3>
-        <ul>
-            <li>Calorías: 130-140 kcal</li>
-            <li>Carbohidratos: 21-22 g</li>
-            <li>Proteínas: 4-5.8 g</li>
-            <li>Grasas: 3-3.4 g</li>
-            <li>Fibra: 2 g</li>
-        </ul>
-        `;
-    }
-
-    if(tipo === "yogurt"){
-        info = `
-        <h2>Yogurt con Frutos Secos</h2>
-
-        <h3>Beneficios</h3>
-        <ul>
-            <li>✔ Rico en probióticos</li>
-            <li>✔ Favorece la microbiota</li>
-            <li>✔ Aporta omega 3</li>
-            <li>✔ Alta saciedad</li>
-        </ul>
-
-        <h3>Porción Recomendada</h3>
-        <p>200-250 kcal aproximadamente</p>
-        `;
-    }
-
-    if(tipo === "palomitas"){
-        info = `
-        <h2>Palomitas Saludables</h2>
-
-        <h3>Beneficios</h3>
-        <ul>
-            <li>✔ Fuente de fibra</li>
-            <li>✔ Control de peso</li>
-            <li>✔ Antioxidantes</li>
-            <li>✔ Salud cardiovascular</li>
-        </ul>
-
-        <p>⚠️ Evitar mantequilla y exceso de aceite.</p>
-        `;
+        info = `<h2>Hot Cake de Avena</h2>`;
     }
 
     contenido.innerHTML = info;
@@ -248,7 +236,7 @@ function cerrarModal(){
     }
 }
 
-// ===== SWIPE PARA CELULAR =====
+// ===== SWIPE =====
 let startX = 0;
 let endX = 0;
 
@@ -269,9 +257,9 @@ if(slides){
         let diff = startX - endX;
 
         if(diff > 50){
-            move(1); // izquierda
+            move(1);
         } else if(diff < -50){
-            move(-1); // derecha
+            move(-1);
         }
     }
 }
