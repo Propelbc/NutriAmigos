@@ -10,6 +10,16 @@ h1,h2{
     color:#2c3e50;
 }
 
+h1{
+    font-size:2.2rem;
+    margin-top:20px;
+    letter-spacing:1px;
+}
+
+h2{
+    font-size:1.6rem;
+}
+
 /* ===== CARRUSEL ===== */
 .carousel{
     position:relative;
@@ -18,7 +28,7 @@ h1,h2{
     margin:20px auto;
     overflow:hidden;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 /* MODAL SCROLL */
@@ -107,9 +117,15 @@ h1,h2{
     background:white;
     padding:30px;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
     line-height:1.7;
     margin-bottom:30px;
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
 
 /* ===== POPUP ===== */
@@ -138,6 +154,7 @@ h1,h2{
     position:relative;
     animation:fadeIn .4s ease;
     transition: transform 0.3s ease;
+    backdrop-filter: blur(8px);
 }
 
 /* EFECTO HOVER POPUP */
@@ -206,6 +223,10 @@ h1,h2{
     background:#219150;
 }
 
+button:active{
+    transform:scale(0.97);
+}
+
 /* MENSAJE */
 #mensaje{
     font-size:13px;
@@ -266,6 +287,7 @@ h1,h2{
     border:1px solid #ddd;
     font-size:14px;
     outline:none;
+    background:#fafafa;
     transition:0.2s;
 }
 
@@ -280,7 +302,7 @@ h1,h2{
     padding:12px;
     border:none;
     border-radius:10px;
-    background:#27ae60;
+    background:linear-gradient(135deg, #27ae60, #2ecc71);
     color:white;
     font-size:15px;
     cursor:pointer;
@@ -288,13 +310,14 @@ h1,h2{
 }
 
 #getForm button:hover{
-    background:#219150;
+    background:linear-gradient(135deg, #219150, #27ae60);
 }
 
 #resultadoGET{
     margin-top:20px;
     padding:15px;
-    background:#f4f4f4;
+    background:linear-gradient(135deg, #f8fff9, #ecfff1);
+    border-left:5px solid #27ae60;
     border-radius:12px;
     animation:fadeIn .4s ease;
 }
@@ -303,13 +326,14 @@ h1,h2{
     margin-top:15px;
     padding:15px;
     background:#e8f5e9;
+    border-left:5px solid #2ecc71;
     border-radius:12px;
     animation:fadeIn .4s ease;
 }
 
 .barra-energia{
-    height:20px;
-    background:#ddd;
+    height:22px;
+    background:#eee;
     border-radius:10px;
     overflow:hidden;
     margin-top:10px;
@@ -318,7 +342,8 @@ h1,h2{
 .nivel-energia{
     height:100%;
     width:0%;
-    background:linear-gradient(90deg, #27ae60, #6ee7a2);
+    background:linear-gradient(90deg, #00c853, #69f0ae);
+    box-shadow:0 0 10px rgba(0,200,83,0.4);
     transition:width 0.8s ease;
 }
 
@@ -327,14 +352,14 @@ h1,h2{
     padding:8px 12px;
     border:none;
     border-radius:8px;
-    background:#27ae60;
+    background:linear-gradient(135deg, #27ae60, #2ecc71);
     color:white;
     cursor:pointer;
     transition:0.3s;
 }
 
 #extraGET button:hover{
-    background:#219150;
+    background:linear-gradient(135deg, #219150, #27ae60);
     transform:scale(1.05);
 }
 
