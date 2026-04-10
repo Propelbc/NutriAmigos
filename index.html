@@ -156,7 +156,7 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
     </div>
 </div>
 
-<!-- ========= NUEVA SECCIÓN ETIQUETADO ========= -->
+<!-- ========= ETIQUETADO ========= -->
 <div class="section">
     <div class="box">
 
@@ -166,7 +166,6 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
         En México, los productos procesados utilizan sellos negros de advertencia para indicar exceso de nutrimentos.
         </p>
 
-        <!-- IMÁGENES -->
         <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:20px 0;">
             <img src="images/calorias.png" width="100">
             <img src="images/azucar.png" width="100">
@@ -193,6 +192,47 @@ Esta página tiene como objetivo fomentar hábitos alimenticios saludables media
         <p>
         Revisa siempre porción, calorías, azúcares y sodio antes de consumir.
         </p>
+
+    </div>
+</div>
+
+<!-- ========= CALCULADORA GET (AÑADIDA) ========= -->
+<div class="section">
+    <div class="box">
+
+        <h2>🔥 Calculadora de Gasto Energético Total (GET)</h2>
+
+        <form id="getForm">
+
+            <label>Sexo:</label>
+            <select id="sexo" required>
+                <option value="">Selecciona</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+
+            <label>Edad:</label>
+            <input type="number" id="edad" placeholder="Ej: 18" required>
+
+            <label>Peso (kg):</label>
+            <input type="number" id="peso" placeholder="Ej: 70" required>
+
+            <label>Estatura (cm):</label>
+            <input type="number" id="estatura" placeholder="Ej: 170" required>
+
+            <label>Nivel de actividad física:</label>
+            <select id="actividad" required>
+                <option value="">Selecciona</option>
+                <option value="1.2">Sedentario</option>
+                <option value="1.55">Moderado</option>
+                <option value="1.9">Activo</option>
+            </select>
+
+            <button type="submit">Calcular GET</button>
+        </form>
+
+        <div id="resultadoGET"></div>
+        <div id="extraGET"></div>
 
     </div>
 </div>
