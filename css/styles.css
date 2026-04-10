@@ -243,3 +243,103 @@ h1,h2{
         font-size:14px;
     }
 }
+
+/* ===== CALCULADORA GET ===== */
+
+#getForm{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:15px;
+}
+
+#getForm label{
+    font-weight:bold;
+    color:#2c3e50;
+    font-size:14px;
+}
+
+#getForm input,
+#getForm select{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:14px;
+    outline:none;
+    transition:0.2s;
+}
+
+#getForm input:focus,
+#getForm select:focus{
+    border-color:#27ae60;
+    box-shadow:0 0 5px rgba(39,174,96,0.3);
+}
+
+#getForm button{
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#27ae60;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#getForm button:hover{
+    background:#219150;
+}
+
+#resultadoGET{
+    margin-top:20px;
+    padding:15px;
+    background:#f4f4f4;
+    border-radius:12px;
+    animation:fadeIn .4s ease;
+}
+
+#extraGET{
+    margin-top:15px;
+    padding:15px;
+    background:#e8f5e9;
+    border-radius:12px;
+    animation:fadeIn .4s ease;
+}
+
+.barra-energia{
+    height:20px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.nivel-energia{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, #27ae60, #6ee7a2);
+    transition:width 0.8s ease;
+}
+
+#extraGET button{
+    margin:8px 5px 0 0;
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    background:#27ae60;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#extraGET button:hover{
+    background:#219150;
+    transform:scale(1.05);
+}
+
+#recomendacion{
+    margin-top:10px;
+    font-size:14px;
+    color:#2c3e50;
+}
