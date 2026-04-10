@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         <div class="nivel-energia" id="barraNivel"></div>
                     </div>
 
-                    <h3>🎯 Objetivo</h3>
+                    <h3>Objetivo</h3>
                     <button onclick="ajustarCalorias(${get}, 'bajar')">Bajar peso</button>
                     <button onclick="ajustarCalorias(${get}, 'subir')">Subir masa</button>
 
