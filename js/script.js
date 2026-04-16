@@ -165,12 +165,44 @@ Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.<br>
 <strong>Diagnóstico:</strong> ${diagnostico}
 `;
 
-            resultadoBox.innerHTML = `
+            let recomendacionComida = "";
+
+if(get < 1800){
+    recomendacionComida = `
+    <h3>🍽️ Recomendación</h3>
+    <p>Te recomendamos alimentos con mayor aporte energético:</p>
+    <ul>
+        <li>🥞 Hot Cake de Avena</li>
+        <li>🥣 Yogurt con frutos secos</li>
+    </ul>
+    `;
+}else if(get <= 2500){
+    recomendacionComida = `
+    <h3>🍽️ Recomendación</h3>
+    <p>Mantén una alimentación equilibrada:</p>
+    <ul>
+        <li>🍘 Galletas de arroz</li>
+        <li>🥤 Agua de avena</li>
+    </ul>
+    `;
+}else{
+    recomendacionComida = `
+    <h3>🍽️ Recomendación</h3>
+    <p>Opta por opciones más ligeras:</p>
+    <ul>
+        <li>🍿 Palomitas saludables</li>
+        <li>🥤 Agua de avena</li>
+    </ul>
+    `;
+}
+
+resultadoBox.innerHTML = `
     <h3>📊 Resultados</h3>
     <p><strong>TMB:</strong> ${tmb} kcal/día</p>
     <p><strong>GET:</strong> ${get} kcal/día</p>
     <p>${mensajeGET}</p>
-`;
+    ${recomendacionComida}
+`;;
 
             // ===== EXTRA PRO =====
             const extra = document.getElementById("extraGET");
