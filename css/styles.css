@@ -399,3 +399,7 @@ button:active{
 .overlay{
     backdrop-filter: blur(4px);
 }
+
+#contenidoModal h2{
+    color:#e74c3c; /* rojo advertencia */
+}
