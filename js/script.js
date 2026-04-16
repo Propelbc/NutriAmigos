@@ -523,3 +523,21 @@ function irArriba(){
         behavior:"smooth"
     });
 }
+
+// ===== PROGRESO DINÁMICO =====
+window.addEventListener("scroll", () => {
+
+    const pasos = document.querySelectorAll(".paso");
+    const scroll = window.scrollY;
+
+    pasos.forEach(p => p.classList.remove("activo"));
+
+    if(scroll < 800){
+        pasos[0].classList.add("activo");
+    } else if(scroll < 1600){
+        pasos[1].classList.add("activo");
+    } else {
+        pasos[2].classList.add("activo");
+    }
+
+});
