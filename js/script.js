@@ -370,29 +370,95 @@ function abrirEtiqueta(tipo){
 
     if(tipo === "calorias"){
         info = `
-        <h2>Exceso de Calorías</h2>
-        <p>Puede provocar aumento de peso y obesidad.</p>
+        <h2>🔥 Exceso de Calorías</h2>
+
+        <p>
+        Las calorías representan la energía que aportan los alimentos. 
+        Un consumo excesivo, especialmente sin actividad física, provoca acumulación de grasa corporal.
+        </p>
+
+        <h3>⚠️ Riesgos</h3>
+        <ul>
+            <li>Obesidad</li>
+            <li>Fatiga constante</li>
+            <li>Mayor riesgo de diabetes tipo 2</li>
+        </ul>
+
+        <h3>🍔 ¿Dónde se encuentra?</h3>
+        <p>Comida rápida, bebidas azucaradas, snacks procesados.</p>
+
+        <h3>💡 Recomendación</h3>
+        <p>Consumir porciones adecuadas y equilibrar con actividad física.</p>
         `;
     }
 
     if(tipo === "azucar"){
         info = `
-        <h2>Exceso de Azúcares</h2>
-        <p>Riesgo de diabetes y caries.</p>
+        <h2>🍬 Exceso de Azúcares</h2>
+
+        <p>
+        El azúcar añadido se absorbe rápidamente, elevando la glucosa en sangre.
+        Su consumo frecuente genera dependencia y problemas metabólicos.
+        </p>
+
+        <h3>⚠️ Riesgos</h3>
+        <ul>
+            <li>Diabetes tipo 2</li>
+            <li>Caries dentales</li>
+            <li>Aumento de peso</li>
+        </ul>
+
+        <h3>🥤 ¿Dónde se encuentra?</h3>
+        <p>Refrescos, jugos industriales, dulces, cereales azucarados.</p>
+
+        <h3>💡 Recomendación</h3>
+        <p>Reducir bebidas azucaradas y preferir agua natural.</p>
         `;
     }
 
     if(tipo === "sodio"){
         info = `
-        <h2>Exceso de Sodio</h2>
-        <p>Puede causar hipertensión.</p>
+        <h2>🧂 Exceso de Sodio</h2>
+
+        <p>
+        El sodio es necesario en pequeñas cantidades, pero su exceso afecta el sistema cardiovascular.
+        </p>
+
+        <h3>⚠️ Riesgos</h3>
+        <ul>
+            <li>Hipertensión arterial</li>
+            <li>Retención de líquidos</li>
+            <li>Problemas cardíacos</li>
+        </ul>
+
+        <h3>🍟 ¿Dónde se encuentra?</h3>
+        <p>Botanas, sopas instantáneas, comida rápida y enlatados.</p>
+
+        <h3>💡 Recomendación</h3>
+        <p>Evitar alimentos ultraprocesados y no añadir sal extra.</p>
         `;
     }
 
     if(tipo === "grasas"){
         info = `
-        <h2>Exceso de Grasas</h2>
-        <p>Aumenta el colesterol y riesgo cardiovascular.</p>
+        <h2>🥓 Exceso de Grasas</h2>
+
+        <p>
+        Las grasas son necesarias, pero el exceso de grasas saturadas y trans afecta la salud.
+        </p>
+
+        <h3>⚠️ Riesgos</h3>
+        <ul>
+            <li>Aumento del colesterol LDL</li>
+            <li>Enfermedades cardiovasculares</li>
+            <li>Incremento de peso</li>
+        </ul>
+
+        <h3>🍕 ¿Dónde se encuentra?</h3>
+        <p>Frituras, comida rápida, productos industrializados.</p>
+
+        <h3>💡 Recomendación</h3>
+        <p>Preferir grasas saludables como aguacate, nueces y aceite de oliva.</p>
         `;
     }
 
