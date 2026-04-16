@@ -504,3 +504,22 @@ function verImagen(src){
 
     modal.style.display = "flex";
 }
+
+// ===== BOTÓN VOLVER ARRIBA =====
+window.addEventListener("scroll", function(){
+
+    const btn = document.getElementById("btnTop");
+
+    if(window.scrollY > 300){
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+function irArriba(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
