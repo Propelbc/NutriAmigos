@@ -408,3 +408,12 @@ button:active{
 #contenidoModal img{
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
+
+.section .box button{
+    transition:0.3s;
+}
+
+.section .box button:hover{
+    transform:scale(1.05);
+    background:#219150;
+}
