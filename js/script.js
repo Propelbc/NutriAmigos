@@ -541,3 +541,35 @@ window.addEventListener("scroll", () => {
     }
 
 });
+
+// ===== PROGRESO CON SCROLL =====
+window.addEventListener("scroll", () => {
+
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+
+    let progreso = (scrollTop / docHeight) * 100;
+
+    // Mover barra
+    document.getElementById("barraScroll").style.width = progreso + "%";
+
+    // LOGROS
+    const l1 = document.getElementById("logro1");
+    const l2 = document.getElementById("logro2");
+    const l3 = document.getElementById("logro3");
+
+    l1.classList.remove("activo");
+    l2.classList.remove("activo");
+    l3.classList.remove("activo");
+
+    if(progreso > 10){
+        l1.classList.add("activo");
+    }
+    if(progreso > 40){
+        l2.classList.add("activo");
+    }
+    if(progreso > 80){
+        l3.classList.add("activo");
+    }
+
+});
