@@ -400,7 +400,7 @@ function abrirEtiqueta(tipo){
     modal.style.display = "flex";
 }
 
-/ ===== VER IMAGEN EN GRANDE =====
+/ ===== VER IMAGEN EN GRANDE ===== /
 function verImagen(src){
 
     const modal = document.getElementById("modalInfo");
