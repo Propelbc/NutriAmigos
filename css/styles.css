@@ -403,3 +403,8 @@ button:active{
 #contenidoModal h2{
     color:#e74c3c; /* rojo advertencia */
 }
+
+/* IMAGEN AMPLIADA */
+#contenidoModal img{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
