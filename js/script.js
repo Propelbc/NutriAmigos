@@ -193,8 +193,19 @@ Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.<br>
                 `;
 
                 setTimeout(() => {
-                    document.getElementById("barraNivel").style.width = porcentaje + "%";
-                }, 100);
+    const barra = document.getElementById("barraNivel");
+    barra.style.width = porcentaje + "%";
+
+    // COLOR DINÁMICO
+    if(get < 1800){
+        barra.style.background = "#3498db"; // azul
+    } else if(get <= 2500){
+        barra.style.background = "#27ae60"; // verde
+    } else {
+        barra.style.background = "#e74c3c"; // rojo
+    }
+
+}, 100);
             }
         });
     }
