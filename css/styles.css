@@ -460,3 +460,51 @@ button:active{
     background:#219150;
     transform:scale(1.1);
 }
+
+/* ===== PROGRESO SCROLL PRO ===== */
+.progreso-box{
+    width:90%;
+    max-width:900px;
+    margin:20px auto;
+    text-align:center;
+}
+
+/* BARRA */
+.barra-container{
+    width:100%;
+    height:10px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+.barra-progreso{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, #27ae60, #6ee7a2);
+    transition:width 0.3s ease;
+}
+
+/* LOGROS */
+.logros{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.logro{
+    padding:6px 12px;
+    border-radius:15px;
+    background:#ddd;
+    font-size:13px;
+    transition:0.3s;
+}
+
+/* ACTIVO */
+.logro.activo{
+    background:#27ae60;
+    color:white;
+    transform:scale(1.1);
+}
