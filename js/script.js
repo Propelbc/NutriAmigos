@@ -166,11 +166,11 @@ Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.<br>
 `;
 
             resultadoBox.innerHTML = `
-                <h3>📊 Resultados</h3>
-                <p><strong>TMB:</strong> ${tmb} kcal/día</p>
-                <p><strong>GET:</strong> ${get} kcal/día</p>
-                <p>${mensajeGET}</p>
-            `;
+    <h3>📊 Resultados</h3>
+    <p><strong>TMB:</strong> ${tmb} kcal/día</p>
+    <p><strong>GET:</strong> ${get} kcal/día</p>
+    <p>${mensajeGET}</p>
+`;
 
             // ===== EXTRA PRO =====
             const extra = document.getElementById("extraGET");
