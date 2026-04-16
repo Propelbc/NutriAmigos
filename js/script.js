@@ -150,7 +150,20 @@ document.addEventListener("DOMContentLoaded", function(){
             tmb = Math.round(tmb);
             get = Math.round(get);
 
-            let mensajeGET = `Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.`;
+           let diagnostico = "";
+
+if(get < 1800){
+    diagnostico = "🔻 Consumo bajo: podrías necesitar aumentar tu ingesta.";
+}else if(get >= 1800 && get <= 2500){
+    diagnostico = "✅ Consumo adecuado: estás en un rango saludable.";
+}else{
+    diagnostico = "⚠️ Consumo alto: podrías estar en superávit calórico.";
+}
+
+let mensajeGET = `
+Para mantener tu peso necesitas <strong>${get} kcal/día</strong>.<br>
+<strong>Diagnóstico:</strong> ${diagnostico}
+`;
 
             resultadoBox.innerHTML = `
                 <h3>📊 Resultados</h3>
