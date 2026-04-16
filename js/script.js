@@ -399,3 +399,18 @@ function abrirEtiqueta(tipo){
     contenido.innerHTML = info;
     modal.style.display = "flex";
 }
+
+/ ===== VER IMAGEN EN GRANDE =====
+function verImagen(src){
+
+    const modal = document.getElementById("modalInfo");
+    const contenido = document.getElementById("contenidoModal");
+
+    contenido.innerHTML = `
+        <h2>Ejemplo de Etiqueta</h2>
+        <img src="${src}" style="width:100%; max-width:500px; border-radius:10px;">
+        <p style="margin-top:10px;">🔍 Puedes observar los sellos de advertencia del producto.</p>
+    `;
+
+    modal.style.display = "flex";
+}
