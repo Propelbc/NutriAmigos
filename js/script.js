@@ -359,3 +359,43 @@ if(slides){
         }
     }
 }
+
+// ===== NUEVO: MODAL ETIQUETADO (AGREGADO) =====
+function abrirEtiqueta(tipo){
+
+    const modal = document.getElementById("modalInfo");
+    const contenido = document.getElementById("contenidoModal");
+
+    let info = "";
+
+    if(tipo === "calorias"){
+        info = `
+        <h2>Exceso de Calorías</h2>
+        <p>Puede provocar aumento de peso y obesidad.</p>
+        `;
+    }
+
+    if(tipo === "azucar"){
+        info = `
+        <h2>Exceso de Azúcares</h2>
+        <p>Riesgo de diabetes y caries.</p>
+        `;
+    }
+
+    if(tipo === "sodio"){
+        info = `
+        <h2>Exceso de Sodio</h2>
+        <p>Puede causar hipertensión.</p>
+        `;
+    }
+
+    if(tipo === "grasas"){
+        info = `
+        <h2>Exceso de Grasas</h2>
+        <p>Aumenta el colesterol y riesgo cardiovascular.</p>
+        `;
+    }
+
+    contenido.innerHTML = info;
+    modal.style.display = "flex";
+}
